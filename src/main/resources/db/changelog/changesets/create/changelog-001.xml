@@ -18,6 +18,7 @@
             <column name="lastname" type="VARCHAR"/>
             <column name="phone_number" type="VARCHAR(20)"/>
             <column name="chat_id" type="bigint"/>
+            <column name="user_state" type="VARCHAR(40)"/>
             <column name="user_status" type="VARCHAR(20)"/>
         </createTable>
     </changeSet>

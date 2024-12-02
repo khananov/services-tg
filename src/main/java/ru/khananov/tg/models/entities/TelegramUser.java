@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import ru.khananov.tg.models.enums.UserState;
 import ru.khananov.tg.models.enums.UserStatus;
 
 import java.io.Serial;
@@ -39,6 +40,10 @@ public class TelegramUser implements Serializable {
 
   @Column(name = "chat_id")
   private Long chatId;
+
+  @Column(name = "user_state")
+  @Enumerated(EnumType.STRING)
+  private UserState userState;
 
   @Column(name = "user_status")
   @Enumerated(EnumType.STRING)
@@ -103,6 +108,14 @@ public class TelegramUser implements Serializable {
 
   public void setChatId(Long chatId) {
     this.chatId = chatId;
+  }
+
+  public UserState getUserState() {
+    return userState;
+  }
+
+  public void setUserState(UserState userState) {
+    this.userState = userState;
   }
 
   public UserStatus getUserStatus() {

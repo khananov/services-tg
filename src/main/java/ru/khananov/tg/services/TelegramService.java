@@ -10,6 +10,8 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 
 public interface TelegramService {
+  void sendMessage(Long chatId, String text);
+
   void sendMessage(SendMessage message);
 
   void sendAnswerPreCheckoutQuery(AnswerPreCheckoutQuery preCheckoutQuery);

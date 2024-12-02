@@ -38,6 +38,14 @@ public class TelegramServiceImpl extends DefaultAbsSender implements TelegramSer
   }
 
   @Override
+  public void sendMessage(Long chatId, String text) {
+    SendMessage message = new SendMessage();
+    message.setText(text);
+    message.setChatId(chatId);
+    sendMessage(message);
+  }
+
+  @Override
   public void sendAnswerPreCheckoutQuery(AnswerPreCheckoutQuery preCheckoutQuery) {
     try {
       execute(preCheckoutQuery);
@@ -107,7 +115,6 @@ public class TelegramServiceImpl extends DefaultAbsSender implements TelegramSer
     SendMessage message = new SendMessage();
     message.setChatId(chatId);
     message.setReplyMarkup(replyKeyboardRemove);
-    message.setText("Введите информацию о себе:");
     sendMessage(message);
   }
 }

@@ -22,9 +22,15 @@ public class StartController implements AbstractController {
 
   @Override
   public void execute(Update update) {
-    telegramUserService.createByMessageAndSave(update.getMessage());
-    telegramService.sendReplyKeyboard(MainMenuReplyKeyboardMarkup.getInstance(),
-        "Выберите действие",
-        update.getMessage().getChatId());
+    if (!update.hasMessage() || update.getMessage().getText() == null) return;
+
+    String messageText = update.getMessage().getText();
+    if (CommandType.START_COMMAND.getValue().equals(messageText) ||
+        CommandType.CANCEL_COMMAND.getValue().equals(messageText)) {
+      telegramUserService.createByMessageAndSave(update.getMessage());
+      telegramService.sendReplyKeyboard(MainMenuReplyKeyboardMarkup.getInstance(),
+          "Выберите сервис",
+          update.getMessage().getChatId());
+    }
   }
 }

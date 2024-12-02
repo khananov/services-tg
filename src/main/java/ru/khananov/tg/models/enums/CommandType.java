@@ -6,8 +6,12 @@ public enum CommandType {
 
   INVEST_COMMAND("\uD83D\uDECD Инвестиции"),
 
+  TRANSLATOR_COMMAND("\uD83D\uDECD Переводчик"),
+  TRANSLATOR_TRANSLATE_COMMAND("Перевести"),
+
   CONFIRM_COMMAND("Да"),
-  REJECT_COMMAND("Нет");
+  REJECT_COMMAND("Нет"),
+  CANCEL_COMMAND("Отменить");
 
   private final String value;
 
