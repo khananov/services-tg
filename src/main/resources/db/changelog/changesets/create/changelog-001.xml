@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd">
+
+    <changeSet author="db-create" id="1">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="telegramusers"/>
+            </not>
+        </preConditions>
+        <createTable tableName="telegramusers">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_telegram_users"/>
+            </column>
+            <column name="user_id" type="bigint"/>
+            <column name="firstname" type="VARCHAR"/>
+            <column name="lastname" type="VARCHAR"/>
+            <column name="phone_number" type="VARCHAR(20)"/>
+            <column name="chat_id" type="bigint"/>
+            <column name="user_status" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
