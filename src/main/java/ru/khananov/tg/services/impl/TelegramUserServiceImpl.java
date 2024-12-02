@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import ru.khananov.tg.models.mappers.TelegramUserMapper;
-import ru.khananov.tg.models.TelegramUser;
+import ru.khananov.tg.models.entities.TelegramUser;
 import ru.khananov.tg.models.enums.UserStatus;
 import ru.khananov.tg.repositories.TelegramUserRepository;
 import ru.khananov.tg.services.TelegramUserService;
@@ -23,12 +23,12 @@ public class TelegramUserServiceImpl implements TelegramUserService {
   }
 
   @Override
-  public TelegramUser createByMessageAndSave(Message message) {
+  public void createByMessageAndSave(Message message) {
     Optional<TelegramUser> telegramUserOptional = telegramUserRepository.findTelegramUserByChatId(message.getChatId());
     telegramUserOptional.ifPresent(tgUser -> updateContactTelegramUser(tgUser, message));
     TelegramUser telegramUser = telegramUserOptional.orElse(telegramUserMapper.toTelegramUser(message));
     telegramUser.setUserStatus(UserStatus.ACTIVE);
-    return telegramUserRepository.save(telegramUser);
+    telegramUserRepository.save(telegramUser);
   }
 
   private void updateContactTelegramUser(TelegramUser telegramUser, Message message) {

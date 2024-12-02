@@ -9,10 +9,9 @@
 		<relativePath/>
 	</parent>
 	<groupId>ru.khananov</groupId>
-	<artifactId>tg</artifactId>
+	<artifactId>services-tg</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>tg</name>
-	<description>Demo project for Spring Boot</description>
+	<name>services-tg</name>
 	<url/>
 	<licenses>
 		<license/>

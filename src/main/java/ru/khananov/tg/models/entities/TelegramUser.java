@@ -1,4 +1,4 @@
-package ru.khananov.tg.models;
+package ru.khananov.tg.models.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -18,9 +18,11 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ru.khananov.tg.exceptions.SendMessageException;
 import ru.khananov.tg.services.TelegramService;
 
+import java.lang.invoke.MethodHandles;
+
 @Service
 public class TelegramServiceImpl extends DefaultAbsSender implements TelegramService {
-  private static final Logger log = LogManager.getLogger(TelegramServiceImpl.class);
+  private static final Logger log = LogManager.getLogger(MethodHandles.lookup().lookupClass());
 
   protected TelegramServiceImpl(String botToken) {
     super(new DefaultBotOptions(), botToken);

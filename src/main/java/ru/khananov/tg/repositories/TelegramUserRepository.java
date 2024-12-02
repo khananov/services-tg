@@ -2,7 +2,7 @@ package ru.khananov.tg.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.khananov.tg.models.TelegramUser;
+import ru.khananov.tg.models.entities.TelegramUser;
 
 import java.util.Optional;
 

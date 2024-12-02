@@ -9,15 +9,7 @@ import ru.khananov.tg.models.enums.CommandType;
 public class InvestController implements AbstractController {
 
   @Override
-  public boolean isSupport(Update update) {
-    if (update.hasMessage()) {
-      return CommandType.INVEST_COMMAND.getValue().equals(update.getMessage().getText());
-    }
-    return false;
-  }
-
-  @Override
-  public void process(Update update) {
+  public void execute(Update update) {
 
   }
 }

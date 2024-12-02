@@ -3,7 +3,7 @@ package ru.khananov.tg.models.mappers;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.telegram.telegrambots.meta.api.objects.Message;
-import ru.khananov.tg.models.TelegramUser;
+import ru.khananov.tg.models.entities.TelegramUser;
 
 @Mapper(componentModel = "spring")
 public interface TelegramUserMapper {
