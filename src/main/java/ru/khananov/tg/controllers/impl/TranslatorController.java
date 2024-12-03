@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.khananov.tg.controllers.AbstractController;
-import ru.khananov.tg.models.Records;
 import ru.khananov.tg.models.enums.CommandType;
 import ru.khananov.tg.models.enums.ServicesUrl;
 import ru.khananov.tg.models.enums.UserState;
@@ -37,9 +36,7 @@ public class TranslatorController implements AbstractController {
       telegramUserService.updateUserState(chatId, UserState.TRANSLATOR);
     } else if (UserState.TRANSLATOR.equals(telegramUserService.getUserStateByChatId(chatId))) { // TODO неоптимальное решение, будем обращаться к БД при каждом обращении пользователя для каждого контроллера
       String translatedMessageResponse = restApiService.sendPostRequest(
-          ServicesUrl.TRANSLATOR_SERVICE_URL.getValue() + "/translate",
-          new Records.TranslatorRequest("ru", messageText),
-          String.class);
+          ServicesUrl.TRANSLATOR_SERVICE_URL.getValue() + "/translate", messageText, String.class);
       telegramService.sendMessage(chatId, translatedMessageResponse);
     }
   }
