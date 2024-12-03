@@ -2,16 +2,14 @@ package ru.khananov.tg.models.enums;
 
 public enum CommandType {
   START_COMMAND("/start"),
-  MAIN_MENU_COMMAND("\uD83D\uDEAA Главная"),
 
-  INVEST_COMMAND("\uD83D\uDECD Инвестиции"),
+  INVEST_COMMAND("\uD83D\uDCC8 Инвестиции"),
+  TRANSLATOR_COMMAND("\uD83C\uDE02\uFE0F Переводчик"),
+  WEATHER_COMMAND("\uD83C\uDF21\uFE0F Погода"),
 
-  TRANSLATOR_COMMAND("\uD83D\uDECD Переводчик"),
-  TRANSLATOR_TRANSLATE_COMMAND("Перевести"),
-
-  CONFIRM_COMMAND("Да"),
-  REJECT_COMMAND("Нет"),
-  CANCEL_COMMAND("Отменить");
+  CONFIRM_COMMAND("✔\uFE0F Да"),
+  REJECT_COMMAND("❌ Нет"),
+  CANCEL_COMMAND("\uD83D\uDEAB Отменить");
 
   private final String value;
 
