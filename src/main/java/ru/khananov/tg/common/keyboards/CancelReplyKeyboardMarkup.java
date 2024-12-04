@@ -1,18 +1,17 @@
-package ru.khananov.tg.models.keyboards;
+package ru.khananov.tg.common.keyboards;
 
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
-import ru.khananov.tg.models.enums.CommandType;
+import ru.khananov.tg.common.enums.CommandType;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton.builder;
 
-public final class MainMenuReplyKeyboardMarkup {
+public final class CancelReplyKeyboardMarkup {
   private static final ReplyKeyboardMarkup INSTANCE = createMainMenuReplyKeyboardMarkup();
 
-  private MainMenuReplyKeyboardMarkup() {
+  private CancelReplyKeyboardMarkup() {
   }
 
   public static ReplyKeyboardMarkup getInstance() {
@@ -24,8 +23,7 @@ public final class MainMenuReplyKeyboardMarkup {
     keyboardBuilder.resizeKeyboard(true);
     keyboardBuilder.selective(true);
     keyboardBuilder.keyboardRow(new KeyboardRow(List.of(
-        builder().text(CommandType.INVEST_COMMAND.getValue()).build(),
-        builder().text(CommandType.TRANSLATOR_COMMAND.getValue()).build()
+        builder().text(CommandType.CANCEL_COMMAND.getValue()).build()
     )));
 
     return keyboardBuilder.build();

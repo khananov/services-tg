@@ -1,9 +1,15 @@
 package ru.khananov.tg.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import ru.khananov.tg.services.RestApiService;
+
+import java.nio.charset.StandardCharsets;
+import java.util.Collections;
 
 @Service
 public class RestApiServiceImpl implements RestApiService {
@@ -16,6 +22,10 @@ public class RestApiServiceImpl implements RestApiService {
 
   @Override
   public <T> T sendPostRequest(String url, Object requestValue, Class<T> responseType) {
-    return restTemplate.postForObject(url, requestValue, responseType);
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_JSON);
+    headers.setAcceptCharset(Collections.singletonList(StandardCharsets.UTF_8));
+    HttpEntity<Object> entity = new HttpEntity<>(requestValue, headers);
+    return restTemplate.postForObject(url, entity, responseType);
   }
 }

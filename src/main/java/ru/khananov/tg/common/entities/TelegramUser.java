@@ -1,4 +1,4 @@
-package ru.khananov.tg.models.entities;
+package ru.khananov.tg.common.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,8 +8,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import ru.khananov.tg.models.enums.UserState;
-import ru.khananov.tg.models.enums.UserStatus;
+import ru.khananov.tg.common.enums.UserState;
+import ru.khananov.tg.common.enums.UserStatus;
 
 import java.io.Serial;
 import java.io.Serializable;

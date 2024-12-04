@@ -1,4 +1,4 @@
-package ru.khananov.tg.models.enums;
+package ru.khananov.tg.common.enums;
 
 public enum UserState {
   START,

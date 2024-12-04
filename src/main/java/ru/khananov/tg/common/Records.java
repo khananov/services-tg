@@ -1,4 +1,4 @@
-package ru.khananov.tg.models;
+package ru.khananov.tg.common;
 
 public class Records {
   private Records() {

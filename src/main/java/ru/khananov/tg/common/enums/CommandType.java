@@ -1,4 +1,4 @@
-package ru.khananov.tg.models.enums;
+package ru.khananov.tg.common.enums;
 
 public enum CommandType {
   START_COMMAND("/start"),
@@ -19,5 +19,12 @@ public enum CommandType {
 
   public String getValue() {
     return value;
+  }
+
+  public static boolean hasCommand(String command) {
+    for (int i = 0; i < values().length; i++) {
+      if (values()[i].value.equals(command)) return true;
+    }
+    return false;
   }
 }
