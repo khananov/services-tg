@@ -22,6 +22,7 @@ public enum CommandType {
   }
 
   public static boolean hasCommand(String command) {
+    if (command == null || command.isEmpty()) return false;
     for (int i = 0; i < values().length; i++) {
       if (values()[i].value.equals(command)) return true;
     }

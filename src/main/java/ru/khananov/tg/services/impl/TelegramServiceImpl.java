@@ -22,7 +22,7 @@ import java.lang.invoke.MethodHandles;
 
 @Service
 public class TelegramServiceImpl extends DefaultAbsSender implements TelegramService {
-  private static final Logger log = LogManager.getLogger(MethodHandles.lookup().lookupClass());
+  private static final Logger logger = LogManager.getLogger(MethodHandles.lookup().lookupClass());
 
   protected TelegramServiceImpl(String botToken) {
     super(new DefaultBotOptions(), botToken);

@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tg
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  tg:
+    image: khananovtf/services-tg:1.0
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-db:5432/tg
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      TRANSLATOR_SERVICE_URL: http://translator:8081
+      WEATHER_SERVICE_URL: http://weather:8082
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres-db
+
+  translator:
+    image: khananovtf/services-translator:1.0
+    ports:
+      - "8081:8081"
+
+  weather:
+    image: khananovtf/services-weather:1.0
+    ports:
+      - "8082:8082"
+
+volumes:
+  pgdata:
